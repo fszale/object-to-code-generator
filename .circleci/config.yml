@@ -1,0 +1,113 @@
+version: 2
+
+#############################################################
+# Shared jobs and configuration
+#############################################################
+
+enterprise_setup_step: &enterprise_setup_step
+  run:
+    name: 'Prepare Enterprise Setup'
+    command: 'echo "prep certs if needed"'
+
+attach_workspace_step: &attach_workspace_step
+  attach_workspace:
+    at: '.'
+
+persist_workspace_step: &persist_workspace_step
+  persist_to_workspace:
+    root: '.'
+    paths: [ '.' ]
+
+
+#############################################################
+# Define your workflow
+#############################################################
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - install_dependencies
+      - unit_tests:
+          requires: [ install_dependencies ]
+      - report_to_sonar:
+          requires: [ unit_tests ]
+      - package_build:
+          requires: [ unit_tests ]
+
+#############################################################
+# Define your jobs
+#############################################################
+
+jobs:
+  # Jobs - Continuous Integration
+  install_dependencies:
+    working_directory: '~/project'
+    docker: [ {image: 'circleci/python:3.6.8-jessie'}]
+    steps:
+        - checkout
+        - run:
+            name: 'Install dependencies'
+            command: |
+              echo "install dependencies"
+              rm -rf dist
+              mkdir -p dist
+              ls -lta ~/project/dist
+              cd ~/project
+              rm -rf tmp-repos
+              pip install -r requirements.txt -t .
+              pip install -r test_requirements.txt -t .
+        - *persist_workspace_step
+
+  unit_tests:
+    working_directory: '~/project'
+    docker: [ {image: 'circleci/python:3.6.8-jessie'}]
+    steps:
+        - *attach_workspace_step
+        - run:
+            name: 'Run unit tests'
+            command: |
+              echo "Run all unite tests"
+              mkdir -p coverage
+              rm -rf coverage/*
+
+              coverage run --branch --source=tests/ -m unittest discover
+              coverage report -m
+              cp .coverage coverage/.coverage.1
+
+              cd coverage
+              coverage combine
+              coverage report
+              coverage xml
+              ls -lta -r *
+        - *persist_workspace_step
+
+  #############################################################
+  # build jobs here
+  #############################################################
+  package_build:
+    working_directory: '~/project'
+    docker: [ {image: 'circleci/python:3.6.8-jessie'}]
+    steps:
+        - *attach_workspace_step
+        - run:
+            name: 'Create build'
+            command: |
+              echo "Run build generate script"
+              mkdir ./dist-tmp
+              mkdir ./out
+
+              echo "running translation ..."
+              python ./src/__init__.py
+
+              cp -r out ./dist/
+
+              echo "Creating a tar file ..."
+              tar -zcvf ./dist-tmp/output.tar.gz ./dist
+              rm -rf ./dist/*
+              mv ./dist-tmp/* ./dist/
+              rm -rf ./dist-tmp
+              echo "list dist"
+              cd ./dist
+              ls -lta
+        - *persist_workspace_step

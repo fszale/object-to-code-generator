@@ -1,0 +1,110 @@
+
+# The following is a python class for xml item "Belgian Waffles"
+import logging
+
+
+class BelgianWaffles():
+	logger = None
+	config = None
+		
+	name = None
+	description = None
+	value = None
+	price = None
+	calories = None
+	
+	def __init__(self):
+		logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
+							level=logging.INFO,
+							datefmt='%Y-%m-%d %H:%M:%S')
+		self.logger = logging.getLogger('class_log')
+		return
+		
+
+# The following is a python class for xml item "Strawberry Belgian Waffles"
+import logging
+
+
+class StrawberryBelgianWaffles():
+	logger = None
+	config = None
+		
+	name = None
+	description = None
+	value = None
+	price = None
+	calories = None
+	
+	def __init__(self):
+		logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
+							level=logging.INFO,
+							datefmt='%Y-%m-%d %H:%M:%S')
+		self.logger = logging.getLogger('class_log')
+		return
+		
+
+# The following is a python class for xml item "Berry-Berry Belgian Waffles"
+import logging
+
+
+class BerryBerryBelgianWaffles():
+	logger = None
+	config = None
+		
+	name = None
+	description = None
+	value = None
+	price = None
+	calories = None
+	
+	def __init__(self):
+		logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
+							level=logging.INFO,
+							datefmt='%Y-%m-%d %H:%M:%S')
+		self.logger = logging.getLogger('class_log')
+		return
+		
+
+# The following is a python class for xml item "French Toast"
+import logging
+
+
+class FrenchToast():
+	logger = None
+	config = None
+		
+	name = None
+	description = None
+	value = None
+	price = None
+	calories = None
+	
+	def __init__(self):
+		logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
+							level=logging.INFO,
+							datefmt='%Y-%m-%d %H:%M:%S')
+		self.logger = logging.getLogger('class_log')
+		return
+		
+
+# The following is a python class for xml item "Homestyle Breakfast"
+import logging
+
+
+class HomestyleBreakfast():
+	logger = None
+	config = None
+		
+	name = None
+	description = None
+	value = None
+	price = None
+	calories = None
+	
+	def __init__(self):
+		logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
+							level=logging.INFO,
+							datefmt='%Y-%m-%d %H:%M:%S')
+		self.logger = logging.getLogger('class_log')
+		return
+		

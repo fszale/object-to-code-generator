@@ -1,0 +1,69 @@
+{
+	"entities": [
+	{	
+		"entity": {
+		"name": "Belgian Waffles",
+		"attributes": [
+				{
+					"name": "description",
+					"value": "Two of our famous Belgian Waffles with plenty of real maple syrup"
+				},
+				{ "price": "$5.95" },
+				{ "calories": "650" }
+			]
+		}
+	},
+	{	
+		"entity": {
+		"name": "Strawberry Belgian Waffles",
+		"attributes": [
+				{
+					"name": "description",
+					"value": "Light Belgian waffles covered with strawberries and whipped cream"
+				},
+				{ "price": "$7.95" },
+				{ "calories": "900" }
+			]
+		}
+	},
+	{	
+		"entity": {
+		"name": "Berry-Berry Belgian Waffles",
+		"attributes": [
+				{
+					"name": "description",
+					"value": "Light Belgian waffles covered with an assortment of fresh berries and whipped cream"
+				},
+				{ "price": "$8.95" },
+				{ "calories": "900" }
+			]
+		}
+	},
+	{	
+		"entity": {
+		"name": "French Toast",
+		"attributes": [
+				{
+					"name": "description",
+					"value": "Thick slices made from our homemade sourdough bread"
+				},
+				{ "price": "$4.50" },
+				{ "calories": "600" }
+			]
+		}
+	},
+	{	
+		"entity": {
+		"name": "Homestyle Breakfast",
+		"attributes": [
+				{
+					"name": "description",
+					"value": "Two eggs, bacon or sausage, toast, and our ever-popular hash browns"
+				},
+				{ "price": "$6.95" },
+				{ "calories": "950" }
+			]
+		}
+	}
+	]
+}
