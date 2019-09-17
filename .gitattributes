@@ -1,1 +1,3 @@
-*.xsl	text
+input/* linguist-vendored
+output/* linguist-vendored
+config/* linguist-vendored
