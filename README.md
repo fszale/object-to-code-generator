@@ -10,10 +10,10 @@ This sample will utilize files in the input folder to produce files in the outpu
 ## How to Run
 To execute please run the following command from project root folder:
 
-* python src\\\__init__.py
+* python src\\__init__.py
 
 ## Configuration
-The config\\\generator_config.json files contains json metadata that defines sequential tasks and related parameters for execution.
+The config\\generator_config.json files contains json metadata that defines sequential tasks and related parameters for execution.
 
 ```json
 {
@@ -42,6 +42,7 @@ The config\\\generator_config.json files contains json metadata that defines seq
 ```
 
 The source/transformer/output are file paths of your choosing, these parameters are then passed into an instance of the implementation class for interpretation.  You can add parameters as you wish as the "params" section is passed as is to the implementation class.
+You can define as many tasks as you like.
 
 ## Logging
 The utility produces a log as follows:
